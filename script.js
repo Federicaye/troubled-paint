@@ -13,17 +13,20 @@ const globe2 = document.getElementById('globe2');
 const message2 = document.getElementById('message2');
 const message1 = document.getElementById('message1');
 
+let src = '';
 let icons = document.querySelectorAll('.image-icon')
 icons.forEach(function (icon) {
 icon.addEventListener('click', (event)=> {
     icon.classList.add('active');
+    src = icon.getAttribute('src');
     let otherIcons = Array.from(icons).filter(function(icon){
         return icon !== event.target
     })
-
+console.log(src);
     otherIcons.forEach(function (icon) {
         icon.classList.remove('active');
     })
+    return src;
 })
 } );
 
@@ -68,8 +71,9 @@ function endPosition() {
         const y = e.clientY - rect.top;
         
         ctx.drawImage(img, x, y);
+        img.src = src;
     }
-    img.src = "pc.png";
+    
 
 myCanvas.addEventListener('mousedown', startPosition);
 myCanvas.addEventListener('mouseup', endPosition);
