@@ -15,7 +15,7 @@ const message1 = document.getElementById('message1');
 
 let icons = document.querySelectorAll('.image-icon')
 icons.forEach(function (icon) {
-icon.addEventListener('click', ()=> {
+icon.addEventListener('click', (event)=> {
     icon.classList.add('active');
     let otherIcons = Array.from(icons).filter(function(icon){
         return icon !== event.target
