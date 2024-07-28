@@ -5,6 +5,17 @@ if (myCanvas.getContext) {
 
 const colorPicker = document.getElementById('color');
 const sizePicker = document.getElementById('size');
+const tea = document.getElementById('tea');
+const pc = document.getElementById('pc');
+const globe = document.getElementById('globe');
+const data = document.getElementById('data');
+const globe2 = document.getElementById('globe2');
+const message2 = document.getElementById('message2');
+const message1 = document.getElementById('message1');
+
+tea.addEventListener('click', ()=> {
+    tea.classList.add('active');
+})
 
 let painting = false;
 
@@ -44,6 +55,7 @@ function endPosition() {
         const rect = myCanvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
+        
         ctx.drawImage(img, x, y);
     }
     img.src = "pc.png";
