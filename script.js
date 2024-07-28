@@ -1,5 +1,8 @@
 let myCanvas = document.getElementById('myCanvas');
 let ctx = myCanvas.getContext('2d');
+if (myCanvas.getContext) {
+    const ctx = myCanvas.getContext("2d");}
+
 const colorPicker = document.getElementById('color');
 const sizePicker = document.getElementById('size');
 
