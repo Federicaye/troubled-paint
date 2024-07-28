@@ -10,6 +10,7 @@ const pen = document.getElementById('pen');
 let usePen = false;
 pen.addEventListener('click', () => {
     usePen = true;
+    pen.classList.add('active');
 });
 
 let src = '';
@@ -18,6 +19,8 @@ icons.forEach(function (icon) {
     icon.addEventListener('click', (event) => {
         icon.classList.add('active');
         usePen = false;
+        pen.classList.add('inactive');
+        pen.classList.remove('active');
         src = icon.getAttribute('src');
         let otherIcons = Array.from(icons).filter(function (icon) {
             return icon !== event.target
@@ -68,25 +71,29 @@ function draw(e) {
     if (!painting) return;
     img.src = src;
     const rect = myCanvas.getBoundingClientRect();
-    const x = e.clientX - rect.left - 60;
-    const y = e.clientY - rect.top - 60;
 
-    ctx.drawImage(img, x, y);
 
-    if(usePen){
-        if(sizePicker && colorPicker) {
+    if (!usePen) {
+        const x = e.clientX - rect.left - 60;
+        const y = e.clientY - rect.top - 60;
+        ctx.drawImage(img, x, y);
+    }
+
+    if (usePen) {
+        if (sizePicker && colorPicker) {
             ctx.lineWidth = sizePicker.value;
             ctx.strokeStyle = colorPicker.value;
         }
-       
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
         ctx.lineCap = 'round';
-         
+
         ctx.lineTo(x, y); //disegna una linea
         ctx.stroke(); //traccia il percorso
         ctx.beginPath();//inizia un percorso
         ctx.moveTo(x, y); //muove il pennello a x y
     }
-   
+
 
 }
 

@@ -13,11 +13,13 @@
 #pen {
     width: 60px;
     height: 60px;
-    border-style: outset;
     padding: 3px;
     margin-top: 10px; 
 }
 
+.inactive{
+    border-style: outset;
+}
 .active {
     border-style: inset;
 }
