@@ -16,9 +16,9 @@ function startPosition(e) {
 function endPosition() {
     painting = false;
     ctx.beginPath();  
-}
+} 
 
-function draw(e) {
+/* function draw(e) {
     if (!painting) return;
 
     const rect = myCanvas.getBoundingClientRect();
@@ -29,13 +29,24 @@ function draw(e) {
     ctx.lineWidth = sizePicker.value;
     ctx.lineCap = 'round';
     ctx.strokeStyle = colorPicker.value;
-
-    ctx.lineTo(x, y);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(x, y);
+     
+    ctx.lineTo(x, y); //disegna una linea
+    ctx.stroke(); //traccia il percorso
+    ctx.beginPath();//inizia un percorso
+    ctx.moveTo(x, y); //muove il pennello a x y
+    
     console.log(x);
-}
+} */
+    const img = new Image();
+    function draw(e) {
+        
+    if (!painting) return;
+        const rect = myCanvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        ctx.drawImage(img, x, y);
+    }
+    img.src = "pc.png";
 
 myCanvas.addEventListener('mousedown', startPosition);
 myCanvas.addEventListener('mouseup', endPosition);
