@@ -7,4 +7,17 @@
     height: 60px;
     border-style: outset;
     padding: 3px;
+    margin-top: 10px;
+}
+
+#pen {
+    width: 60px;
+    height: 60px;
+    border-style: outset;
+    padding: 3px;
+    margin-top: 10px; 
+}
+
+.active {
+    border-style: inset;
 }
