@@ -2,6 +2,11 @@
     border: 1px solid rgb(0, 0, 0);
 }
 
+.container-f {
+    margin: 0 auto;
+    width: 1300px;
+}
+
 .image-icon {
     width: 60px;
     height: 60px;
