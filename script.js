@@ -13,9 +13,20 @@ const globe2 = document.getElementById('globe2');
 const message2 = document.getElementById('message2');
 const message1 = document.getElementById('message1');
 
-tea.addEventListener('click', ()=> {
-    tea.classList.add('active');
+let icons = document.querySelectorAll('.image-icon')
+icons.forEach(function (icon) {
+icon.addEventListener('click', ()=> {
+    icon.classList.add('active');
+    let otherIcons = Array.from(icons).filter(function(icon){
+        return icon !== event.target
+    })
+
+    otherIcons.forEach(function (icon) {
+        icon.classList.remove('active');
+    })
 })
+} );
+
 
 let painting = false;
 
